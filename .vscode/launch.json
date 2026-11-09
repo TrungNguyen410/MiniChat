@@ -1,0 +1,50 @@
+{
+    // Thư mục project có dấu tiếng Việt: trình khởi chạy java trên Windows làm hỏng đường dẫn
+    // có dấu trong tham số -cp, nên dùng "jarmanifest" để đưa classpath vào một file jar tạm.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MiniChat Server",
+            "request": "launch",
+            "mainClass": "minichat.server.ChatServer",
+            "projectName": "MiniChat",
+            "console": "internalConsole",
+            "shortenCommandLine": "jarmanifest"
+        },
+        {
+            "type": "java",
+            "name": "MiniChat Client 1",
+            "request": "launch",
+            "mainClass": "minichat.client.ChatClientGUI",
+            "projectName": "MiniChat",
+            "console": "internalConsole",
+            "shortenCommandLine": "jarmanifest"
+        },
+        {
+            "type": "java",
+            "name": "MiniChat Client 2",
+            "request": "launch",
+            "mainClass": "minichat.client.ChatClientGUI",
+            "projectName": "MiniChat",
+            "console": "internalConsole",
+            "shortenCommandLine": "jarmanifest"
+        },
+        {
+            "type": "java",
+            "name": "MiniChat Console Client",
+            "request": "launch",
+            "mainClass": "minichat.client.ConsoleClient",
+            "projectName": "MiniChat",
+            "console": "integratedTerminal",
+            "shortenCommandLine": "jarmanifest"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server + 2 Client",
+            "configurations": ["MiniChat Server", "MiniChat Client 1", "MiniChat Client 2"],
+            "stopAll": true
+        }
+    ]
+}
